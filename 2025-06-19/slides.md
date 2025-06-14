@@ -1,43 +1,30 @@
 ---
-theme: default
-addons:
-  - slidev-addon-graph
-title: 'Le dilemme du Code Legacy: on maintient ou on réécrit ?'
+# You can also start simply with 'default'
+theme: seriph
 titleTemplate: '%s - Valentin Dumas'
-info: false
-author: Valentin Dumas
-keywords: software,craftsmanship,architecture,practices
-selectable: false # text in-slides not selectable
-colorSchema: light
-themeConfig:
-  primary: '#fff'
 fonts:
   sans: DM Sans
   serif: Noto Serif
   mono: Consolas
-htmlAttrs:
-  dir: ltr
-  lang: fr
-background: ./assets/images/clockwork-background.avif
-
+addons:
+  - slidev-addon-graph
+background: https://images.unsplash.com/photo-1716406536069-c27068316336?q=80&w=2081&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
+# some information about your slides (markdown enabled)
+title: "Le dilemme du Code Legacy: on maintient ou on réécrit ?"
+info: |
+  ## Slidev Starter Template
+  Presentation slides for developers.
+class: text-center
+drawings:
+  persist: false
+transition: fade
 mdc: true
-
-transition: fade | default
-class: text-center # apply unocss classes to the current slide
-
 ---
 
 # Le dilemme du code legacy: on maintient ou on réécrit ?
-<!-- <div @click="$slidev.nav.next" class="mt-12 py-1" hover:bg="white op-10">
-  Press Space for next page <carbon:arrow-right />
-</div> -->
-
 
 <div class="abs-br m-6 text-xl">
   <span class="text-xs m-x-3 text-white/60">Valentin Dumas</span>
-  <!-- <button @click="$slidev.nav.openInEditor()" title="Open in Editor" class="slidev-icon-btn">
-    <carbon:edit />
-  </button> -->
   <a href="https://github.com/ValentinDumas/talks" target="_blank" class="slidev-icon-btn">
     <carbon:logo-github />
   </a>
@@ -52,33 +39,9 @@ The last comment block of each slide will be treated as slide notes. It will be 
 
 ---
 transition: fade-out
-layout: cover
-class: bg-opacity-slide
-background: ./assets/images/under-the-bridge-background.avif
-backgroundColor: rgba(0, 0, 0, 0.4)
 ---
 
-# What is Slidev? (dummy slide)
-
-Hello **slidev** !
-
-<!-- surbrillance successive des lignes 5, 1 puis 2 au clic de souris (ou les flèches du clavier), comme si l'on simulait un débogage ! -->
-```java {all|5|1|2}{lines:true}
-  function sayHello(person){
-    System.out.println('Hello world !')
-  }
-```
-
-
-
-
-<div class="border border-12 border-white/30 shadow-2xl rounded-3xl">
-    <div class="overflow-hidden h-full w-full bg-white dark:bg-neutral-800 rounded-xl p-6 shadow-lg">
-      sdsd
-      <p>ddd</p>
-      dsdsd
-    </div>
-  </div>
+# What is Slidev?
 
 Slidev is a slides maker and presenter designed for developers, consist of the following features
 
@@ -109,14 +72,10 @@ h1 {
   -webkit-text-fill-color: transparent;
   -moz-text-fill-color: transparent;
 }
-.bg-opacity-slide {
-  background-color: rgba(0, 0, 0, 0.4); /* Black overlay with 40% opacity */
-  z-index: -1;
-}
 </style>
 
 <!--
-Here is another comment / note to rely on when talking !
+Here is another comment.
 -->
 
 ---
@@ -229,7 +188,7 @@ Powered by [shiki-magic-move](https://shiki-magic-move.netlify.app/), Slidev sup
 Add multiple code blocks and wrap them with <code>````md magic-move</code> (four backticks) to enable the magic move. For example:
 
 ````md magic-move {lines: true}
-```ts {*|2|3,4,5|*}
+```ts {*|2|*}
 // step 1
 const author = reactive({
   name: 'John Doe',
@@ -585,7 +544,7 @@ Learn more: [Mermaid Diagrams](https://sli.dev/features/mermaid) and [PlantUML D
 ---
 foo: bar
 dragPos:
-  square: 502,150,167,_,-16
+  square: 691,32,167,_,-16
 ---
 
 # Draggable Elements
@@ -611,7 +570,7 @@ Double-click on the draggable elements to edit their positions.
 </v-drag>
 ```
 
-<v-drag pos="554,335,261,_">
+<v-drag pos="663,206,261,_,-15">
   <div text-center text-3xl border border-main rounded>
     Double-click me!
   </div>
@@ -668,70 +627,3 @@ class: text-center
 [Documentation](https://sli.dev) · [GitHub](https://github.com/slidevjs/slidev) · [Showcases](https://sli.dev/resources/showcases)
 
 <PoweredBySlidev mt-10 />
-
-
----
-layout: cover
----
-
-```mermaid
-gantt
-    title A Gantt Diagram
-    dateFormat YYYY-MM-DD
-    section Section
-        A task          :a1, 2014-01-01, 30d
-        Another task    :after a1, 20d
-    section Another
-        Task in Another :2014-01-12, 12d
-        another task    :24d
-
-```
-
-```js [npm ~i-uil:github~] {all} twoslash
-console.log('Hello, GitHub!')
-```
-
-````md magic-move {at:4, lines: true} // [!code hl]
-```js {*|1|2-5} // [!code hl]
-let count = 1
-function add() {
-  count++
-}
-```
-
-Non-code blocks in between as ignored, you can put some comments.
-
-```js {*}{lines: false} // [!code hl]
-let count = 1
-const add = () => count += 1
-```
-````
-
-<!-- Scoped styles -->
-> Hello **world**
-
-<style>
-blockquote {
-  strong {
-    --uno: 'text-teal-500 dark:text-teal-400';
-  }
-}
-</style>
-
----
-layout: cover
----
-
-### Animations: Nested Lists
-
-<v-clicks depth="2">
-
-- Item 1
-  - Item 1.1
-  - Item 1.2
-- Item 2
-  - Item 2.1
-  - Item 2.2
-
-</v-clicks>
-
