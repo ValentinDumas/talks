@@ -38,33 +38,93 @@ The last comment block of each slide will be treated as slide notes. It will be 
 -->
 
 ---
-transition: fade-out
+transition: slide-left
+layout: cover
+background: /case-study-equifax/equifax.webp
 ---
 
-# What is Slidev?
+---
+transition: slide-left
+layout: center
+---
 
-Slidev is a slides maker and presenter designed for developers, consist of the following features
+<img src="/case-study-equifax/equifax-exposure.webp" />
 
-- 📝 **Text-based** - focus on the content with Markdown, and then style them later
-- 🎨 **Themable** - themes can be shared and re-used as npm packages
-- 🧑‍💻 **Developer Friendly** - code highlighting, live coding with autocompletion
-- 🤹 **Interactive** - embed Vue components to enhance your expressions
-- 🎥 **Recording** - built-in recording and camera view
-- 📤 **Portable** - export to PDF, PPTX, PNGs, or even a hostable SPA
+---
+transition: slide-left
+layout: image
+image: https://images.unsplash.com/photo-1572883454114-1cf0031ede2a?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
+---
+
+# Bilan de la faille
+
+
+<div class="absolute right-14 bottom-10">
+  <Card class="h-75.5 w-75.5 relative">
+    <GraphAndReactivity v-if="$clicks < 5" class="absolute inset-4" />
+    <v-click>
+      <GraphAndReactivityDoubleLinked class="absolute inset-4" />
+    </v-click>
+  </Card>
+</div>
+
+- 📝 **148 Millions** d'utilisateurs impactés
+- 🎨 **...** - themes can be shared and re-used as npm packages
+- 🧑‍💻 **...** - code highlighting, live coding with autocompletion
+- 🤹 **...** - embed Vue components to enhance your expressions
+- 🎥 **...** - built-in recording and camera view
+- 📤 **...** - export to PDF, PPTX, PNGs, or even a hostable SPA
 - 🛠 **Hackable** - virtually anything that's possible on a webpage is possible in Slidev
 <br>
 <br>
 
-Read more about [Why Slidev?](https://sli.dev/guide/why)
-
-<!--
-You can have `style` tag in markdown to override the style for the current page.
-Learn more: https://sli.dev/features/slide-scope-style
--->
+Read more about ...
 
 <style>
 h1 {
   background-color: #2B90B6;
+  background-image: linear-gradient(45deg, #4EC5D4 10%, #146b8c 20%);
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+</style>
+
+<!--
+Here is another comment.
+-->
+
+---
+transition: slide-left
+layout: image
+image: https://images.unsplash.com/photo-1572883454114-1cf0031ede2a?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
+---
+
+# Ce qui aurait pu fonctionner ?
+
+<div>
+  <Card class="w-80/100 text-xl">
+
+    📝 **Mettre en place...** ...
+
+    🎨 **Réagir sur...** - ...
+    
+    🧑‍💻 **...** - ...
+    
+    🤹 **...** - ...
+  
+  </Card>
+</div>
+
+<div>
+...
+</div>
+
+<style>
+h1 {
+  background-color: darkgray;
   background-image: linear-gradient(45deg, #4EC5D4 10%, #146b8c 20%);
   background-size: 100%;
   -webkit-background-clip: text;
@@ -627,3 +687,4 @@ class: text-center
 [Documentation](https://sli.dev) · [GitHub](https://github.com/slidevjs/slidev) · [Showcases](https://sli.dev/resources/showcases)
 
 <PoweredBySlidev mt-10 />
+
