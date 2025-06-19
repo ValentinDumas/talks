@@ -47,25 +47,10 @@ background: /case-study-equifax/equifax.webp
 
 <!--
 
+Equifax est une entreprise spécialisée dans les données de crédit : elle collecte, analyse et vend des informations financières sur les consommateurs à des banques, assureurs et employeurs pour évaluer leur solvabilité.
+
 En 2017, L’agence américaine d’analyse de crédit Equifax a subi l'une des plus grandes violations de données de l'histoire, exposant les informations personnelles d'environ 147 millions de personnes, y compris les noms, les numéros de sécurité sociale, les dates de naissance, les adresses et, dans certains cas, les numéros de permis de conduire et de carte de crédit. La violation s'est produite entre la mi-mai et juillet 2017 et n'a été découverte qu'à la fin du mois de juillet.
 
--->
-
----
-transition: slide-left
-layout: center
----
-
-<Card class="relative w-fit">
-  <img class="h-115" src="/case-study-equifax/equifax-exposure.png" />
-
-  <div class="absolute bottom-2 right-4 text-xs text-gray-500">
-    Source: <a href="https://oversight.house.gov" target="_blank" class="underline">oversight.house.gov</a> (Equifax Report)
-  </div>
-</Card>
-
-<!--
-  Equifax est une entreprise spécialisée dans les données de crédit : elle collecte, analyse et vend des informations financières sur les consommateurs à des banques, assureurs et employeurs pour évaluer leur solvabilité.
 -->
 
 ---
@@ -619,7 +604,7 @@ class: opacity-80
 
 # **Proposer** un plan
 
-<h3 v-click>🎯 Périmètre d'itervention</h3>
+<h3 v-click>🎯 Périmètre d'intervention</h3>
 <br>
 <div class="space-y- pl-4">
   <div v-click>🗺️ Définir un périmètre d'<strong>intervention initial</strong></div>
@@ -638,7 +623,7 @@ class: opacity-80
   <div v-click>🛡️ Pratiques de développement</div>
   <div v-click>🔍 Expliciter les concepts métier</div>
   <span v-click class="text-sm text-gray-500 pl-8">Ex : une colonne "montant" → en fait un montant en euros : migration, renommage, typage</span>
-  <div v-click>🚫 Pas de code freeze !</div> <!-- on continue d'intégrer ! -->
+  <div v-click>🚫 Eviter le "code freeze" !</div> <!-- on continue d'intégrer ! -->
   <span v-click class="text-sm text-gray-500 pl-8">Ne pas isoler la refonte sur une branche morte.  
   Indicateur : mesure de la part de "nouveau" code réellement exécuté</span>
 </div>
@@ -675,19 +660,19 @@ class: opacity-80
   <!-- <span class="text-sm text-gray-500 italic">
   Les personnes impactées par notre refonte des coûts et risques actuels (ex: équipe produit, devises)
   </span> -->
-  <div v-click>🗺️ Présenter le plan de **refonte**</div>
+  <div v-click>🗺️ Présenter le plan de <strong>refonte</strong></div>
   <!-- <span class="text-sm text-gray-500 italic">
   Montrer en quoi la refonte répond aux problèmes identifiés
   </span> -->
-  <div v-click>🤝 **Négocier** la planification</div>
+  <div v-click>🤝 <strong>Négocier</strong> la planification</div>
   <!-- <span class="text-sm text-gray-500 italic">
   Avec le PO ou les sponsors : diplomatie et intelligence collective
   </span> -->
-  <div v-click>✅ Obtenir l’**accord** de la direction</div>
+  <div v-click>✅ Obtenir l’<strong>accord</strong> de la direction</div>
   <!-- <span class="text-sm text-gray-500 italic">
   Discussion avec les décideurs (CTO, VP Engineering…)
   </span> -->
-  <div v-click>🎯 Aligner avec la **stratégie d’entreprise**</div>
+  <div v-click>🎯 Aligner avec la <strong>stratégie d’entreprise</strong></div>
   <!-- <span class="text-sm text-gray-500 italic">
   Montrer l'alignement entre la refonte et les objectifs globaux
   </span> -->
@@ -951,34 +936,6 @@ Jeu du Trivia
 
 <!-- Comment faire ? -->
 
----
-transition: slide-left
-layout: statement
-class: text-4xl opacity-80
----
-
-# Tester
-
-<style>
-h1, h2 {
-  color: #2B90B6;
-}
-</style>
-
----
-transition: slide-up
-layout: statement
-class: text-4xl opacity-80
----
-
-❝ je dois **tester** avant de refacto,
-<br>
-<br>
-
-mais mon code est **intestable** ❞
-
-<!-- ... -->
-
 <style>
 strong {
   color: #2B90B6;
@@ -1134,7 +1091,7 @@ transition: slide-left
 #image: https://images.unsplash.com/photo-1576153192396-180ecef2a715?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
 ---
 
-# Refactorer dans du code legacy
+# Découvrir du code legacy
 
 Scratch Refactoring + Refactoring Exploratoire
 
@@ -1186,7 +1143,85 @@ Ce qu'on a appris
 
 - add(): initialize player data + affichage
 
-- roll(): determine si le joueur est piégé ou non
+- roll(): determine si le joueur est piégé ou non ET le déplace
+
+
+---
+transition: slide-left
+layout: statement
+class: text-4xl opacity-80
+---
+
+# Tester
+
+<style>
+h1, h2 {
+  color: #2B90B6;
+}
+</style>
+
+---
+name: Refactorer code legacy | Approval tests
+transition: slide-left
+---
+
+# Approval Tests <!-- Golden, Characterization, Snapshot(React) -->
+
+> Quand ? Mon code n'a aucun tests, je ne sais pas ce qu'il fait.
+
+E2E >= Approval Tests >= Unit Test
+
+https://approvaltests.com/
+
+<div class="flex items-center justify-center gap-20">
+
+  <img v-click="1" src="/approval-tests-boite-noire.png" class="h-20" />
+
+  <!-- Left: Received -->
+  <div v-click="2" class="flex flex-col items-center">
+    <div class="text-7xl">📄</div>
+    <div class="mt-2 text-xl font-medium text-gray-400">File Received</div>
+  </div>
+
+  <!-- Arrow -->
+  <div v-click="3" class="text-5xl text-gray-400">➡️</div>
+
+  <!-- Right: Approved -->
+  <div v-click="4" v-mark="4" class="flex flex-col items-center">
+    <div class="text-7xl">📄</div>
+    <div class="mt-2 text-xl font-medium text-green-700">File Approved</div>
+  </div>
+
+</div>
+
+<!--
+  [Démo] Générer tests chara (créer un test 'add player')
+  [Démo][add()] simuler un changement (commenter un console.log)
+  Vérifier la nouvelle couverture de test:
+    - IntelliJ/Sonar
+    - PiTest (mutation testing), [opt] vérifier le N fois execution au niveau de la ligne ;)
+  [Démo][add()] Commenter player.push() -> tests vont fail (boucle infinie)
+  corriger
+  commenter ligne d'en dessous -> fail
+  [Démo] Générer test 'add player roll' (avec un roll à 777)
+
+  [Démo][add()][opt] Ajouter un param/méthode/log pour 'tracker' les états des variables privées (ex: places)
+
+-->
+
+---
+transition: slide-up
+layout: statement
+class: text-4xl opacity-80
+---
+
+❝ je dois **tester** avant de refacto,
+<br>
+<br>
+
+mais mon code est **intestable** ❞
+
+<!-- ... -->
 
 ---
 name: Refactorer code legacy | Decoupler Core vs Infra
@@ -1523,60 +1558,10 @@ class TestableGame extends Game {
   }
 }
 ```
-
 ````
 
 <!--
   Etape 3. Si on utilise l'inversion de dépendance avec Spring -> directement injecter dans le constructeur
--->
-
----
-name: Refactorer code legacy | Approval tests
-transition: slide-left
----
-
-# Approval Tests <!-- Golden, Characterization, Snapshot(React) -->
-
-> Quand ? Mon code n'a aucun tests, je ne sais pas ce qu'il fait.
-
-E2E >= Approval Tests >= Unit Test
-
-https://approvaltests.com/
-
-<div class="flex items-center justify-center gap-20">
-
-  <img v-click="1" src="/approval-tests-boite-noire.png" class="h-20" />
-
-  <!-- Left: Received -->
-  <div v-click="2" class="flex flex-col items-center">
-    <div class="text-7xl">📄</div>
-    <div class="mt-2 text-xl font-medium text-gray-400">File Received</div>
-  </div>
-
-  <!-- Arrow -->
-  <div v-click="3" class="text-5xl text-gray-400">➡️</div>
-
-  <!-- Right: Approved -->
-  <div v-click="4" class="flex flex-col items-center">
-    <div class="text-7xl">📄</div>
-    <div class="mt-2 text-xl font-medium text-green-700">File Approved</div>
-  </div>
-
-</div>
-
-<!--
-  [Démo] Générer tests chara (créer un test 'add player')
-  [Démo][add()] simuler un changement (commenter un console.log)
-  Vérifier la nouvelle couverture de test:
-    - IntelliJ/Sonar
-    - PiTest (mutation testing), [opt] vérifier le N fois execution au niveau de la ligne ;)
-  [Démo][add()] Commenter player.push() -> tests vont fail (boucle infinie)
-  corriger
-  commenter ligne d'en dessous -> fail
-  [Démo] Générer test 'add player roll' (avec un roll à 777)
-
-  [Démo][add()][opt] Ajouter un param/méthode/log pour 'tracker' les états des variables privées (ex: places)
-
 -->
 
 ---
