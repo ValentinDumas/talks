@@ -40,41 +40,52 @@ The last comment block of each slide will be treated as slide notes. It will be 
 -->
 
 ---
-transition: slide-left
-layout: cover
-background: /case-study-equifax/equifax.webp
+name: Ariane5 case study
+layout: center
+class: opacity-80
 ---
 
-<!--
+<div class="size-full flex items-center justify-center">
+  <img src="/ariane5_501_launch_2k.jpg" alt="alien signals" class="h-120" />
+</div>
 
-Equifax est une entreprise spécialisée dans les données de crédit : elle collecte, analyse et vend des informations financières sur les consommateurs à des banques, assureurs et employeurs pour évaluer leur solvabilité.
 
-En 2017, L’agence américaine d’analyse de crédit Equifax a subi l'une des plus grandes violations de données de l'histoire, exposant les informations personnelles d'environ 147 millions de personnes, y compris les noms, les numéros de sécurité sociale, les dates de naissance, les adresses et, dans certains cas, les numéros de permis de conduire et de carte de crédit. La violation s'est produite entre la mi-mai et juillet 2017 et n'a été découverte qu'à la fin du mois de juillet.
+<!-- 
+
+En Guyane française, le 4 juin 1996. Le ciel est dégagé, l'excitation est palpable : Ariane 5 s'apprête à effectuer son vol inaugural.
+Mais 37 secondes après le décollage, l'impensable se produit : la fusée dévie de sa trajectoire, se disloque et explose en plein vol.
+À l'origine de ce désastre ? Une simple erreur logicielle: un problème de saturation d'entier non gérée lors de la conversion d'une valeur de 64 bits en 16 bits.
+Ensuite ? Ce dépassement a entraîné l'arrêt du système de guidage inertiel principal, puis de son système de secours identique. Privée de toute information de navigation, la fusée a interprété des données erronées comme des commandes valides, déclenchant une manœuvre fatale. Wikipedia+5Wikipedia+5www-users.cse.umn.edu+5
+En cause ? Un morceau de code hérité d'Ariane 4, censé être inoffensif…
+Bilan ? Un échec retentissant, une perte de centaines de millions de dollars, et quatre satellites scientifiques détruits. thisdayinaviation.com+7Sunny Day+7SmartBear Software+7SmartBear Software+7Wikipedia+7Wikipedia+7
+Ce qui aurait pu être évité ?
 
 -->
 
 ---
+name: Ariane5 case study possible improvements
 transition: slide-left
-layout: center
-#layout: image
-#image: https://images.unsplash.com/photo-1572883454114-1cf0031ede2a?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
+layout: image-right
+image: /ariane5_501_launch_2k.jpg
+class: opacity-80
 ---
 
-# Causes de la faille
+# Un bug coûteux
+
+Ce qui aurait pu fonctionner ?
 
 <div class="text-xl opacity-80 p-2">
 
-  <!-- https://www.blackduck.com/blog/cve-2017-5638-apache-struts-vulnerability-explained.html -->
-  📝 **(CVE-2017-5638)** dans **Apache Struts** : Correctif en mars 2017, non appliqué
+  <span v-click>📝 Tests complets du SRI</span>
   <br><br>
 
-  🧑‍💻 **Corrections tardives** : Audit infructueux, certificats TLS expirés, complexité de code
-<br><br>
+  <span v-click>🧑‍💻 <i>" ça fonctionne sur l'ancien "</i></span>
+  <br><br>
 
-  🤹 Pas de **segmentation réseau**:  Accès aux bases de données sur l'ensemble du réseau
-<br><br>
+  <span v-click>🤹 Version 4 != Version 5</span>
+  <br><br>
 
-  🛠 **Aucune limite** de requête BDD:  Extraction de données sensibles sans détection
+  <span v-click>🛠 Gestion d'exceptions, programmation défensive</span>
   <!-- note: peut suggérer un manque de tests -->
   <!-- note: sur des données sensibles comme ça, on peut emettre des réserves sur les requetes de récupération -->
 
@@ -87,86 +98,10 @@ strong, h1 {
 </style>
 
 <!--
-Causes
-
-https://www.blackduck.com/blog/cve-2017-5638-apache-struts-vulnerability-explained.html
-
-Vulnérabilité logicielle non corrigée : Les attaquants ont exploité une vulnérabilité connue (CVE-2017-5638) dans Apache Struts, un cadre d'application web populaire. Un correctif pour cette vulnérabilité a été publié en mars 2017, mais Equifax ne l'a pas appliqué à ses systèmes.
-
-Mauvaises pratiques de sécurité : Equifax a stocké les informations d'identification des administrateurs en clair et n'a pas utilisé d'authentification à deux facteurs pour les systèmes critiques, ce qui a facilité l'escalade de l'accès des attaquants une fois qu'ils étaient à l'intérieur.
-
-Certificat de sécurité expiré : Les outils de surveillance du réseau d'Equifax n'ont pas détecté la violation pendant des mois parce qu'un certificat TLS clé avait expiré, empêchant l'inspection du trafic crypté.
-
-Absence de segmentation du réseau : Les attaquants ont pu se déplacer latéralement au sein du réseau, accédant à d'autres bases de données après la violation initiale.
-
-Aucune limite de requête : Aucune restriction n'a été imposée sur le nombre de requêtes de la base de données, ce qui a permis aux attaquants d'extraire d'importants volumes de données sans déclencher d'alertes.
-
-note: peut suggérer un manque de tests
-note: sur des données sensibles comme ça, on peut emettre des réserves sur les requetes de récupération
-
+C’est un exemple viscéral qui démontre pourquoi les systèmes legacy nécessitent une attention stratégique,
+car parfois,
+une simple ligne de code peut faire la différence entre le succès et la catastrophe.
 -->
-
----
-transition: slide-left
-layout: center
-#layout: image
-#image: https://images.unsplash.com/photo-1572883454114-1cf0031ede2a?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
-class: text-xl opacity-80
----
-
-# Ce qui aurait pu fonctionner ?
-
-<div class="text-xl p-2">
-
-  🪲 Appliquer les correctifs **dès leur publication**
-  <br><br>
-
-  🔐 Renforcer l'authentification : **authentification forte** et **multifactorielle** pour tous les accès administratifs
-  <br><br>
-
-  📊 **Monitorer** et limiter les **requêtes** BDD : requêtes excessives
-  <br><br>
-
-  💡 **Amélioration continue** sur les process et les méthodes de développement
-
-</div>
-
-<style>
-strong, h1 {
-  color: #2B90B6;
-}
-</style>
-
-<!--
-
-  Gestion des correctifs en temps opportun : Il est essentiel d'appliquer les correctifs de sécurité dès qu'ils sont publiés, en particulier pour les applications anciennes qui ne sont peut-être pas maintenues activement, mais qui traitent encore des données sensibles.
-
-Analyse complète des vulnérabilités : Utiliser plusieurs outils d'analyse indépendants et des processus de validation pour s'assurer que tous les systèmes, y compris les anciens, sont vérifiés pour détecter les vulnérabilités connues.
-
-Renforcer l'authentification : Exiger une authentification forte et multifactorielle pour tous les accès administratifs, et ne jamais stocker les informations d'identification en clair.
-
-Segmentation adéquate du réseau : Limiter la capacité des attaquants à se déplacer latéralement en segmentant les réseaux et en restreignant l'accès entre les systèmes, en particulier pour les applications existantes.
-
-Gestion des certificats et du chiffrement : Renouveler et surveiller régulièrement les certificats de sécurité afin de conserver une visibilité sur le trafic crypté et de détecter toute activité suspecte.
-
-Limiter les requêtes dans les bases de données : Mettre en place des contrôles pour détecter et bloquer les requêtes anormales ou les extractions excessives de données, qui peuvent être le signe d'une violation en cours.
-
-Donner la priorité à la sécurité des systèmes existants : Les applications et bases de code existantes sont souvent négligées mais peuvent constituer des points critiques de défaillance. Examinez régulièrement, mettez à jour et, si possible, remplacez ou mettez hors service les systèmes existants pour minimiser les risques.
-
--->
-
----
-name: Présentation
-layout: statement
-class: opacity-80
----
-
-<div class="flex flex-col justify-center items-center gap-3">
-  <img src="/profile.jpg" alt="profile picture" class="h-50 rounded-100"/>
-  <div class="pl-4 text-xl"><strong>Valentin DUMAS</strong></div>
-  <div class="pl-4 text-sm">Ingénieur logiciel</div>
-  <img src="/logo-takima.png" alt="Logo Takima" class="h-10 pl-4 pt-2" />
-</div>
 
 ---
 transition: slide-up
@@ -209,12 +144,25 @@ strong {
 </style>
 
 ---
+name: Présentation
+layout: statement
+class: opacity-80
+---
+
+<div class="flex flex-col justify-center items-center gap-3">
+  <img src="/profile.jpg" alt="profile picture" class="h-50 rounded-100"/>
+  <div class="pl-4 text-xl"><strong>Valentin DUMAS</strong></div>
+  <div class="pl-4 text-sm">Ingénieur logiciel</div>
+  <img src="/logo-takima.png" alt="Logo Takima" class="h-10 pl-4 pt-2" />
+</div>
+
+---
 transition: slide-left
 layout: default
 ---
 
 <!-- TODO: probablement remplacer par un exemple de ton exercice de use case -->
-```java [Extrait du Gilded Rose refactoring Kata] {*}{lines:true, maxHeight:'50vh'}
+```java [Extrait du Gilded Rose refactoring Kata] {*}{lines:true, maxHeight:'63vh'}
 public void updateQuality() {
         for (int i = 0; i < items.length; i++) {
             if (!items[i].name.equals("Aged Brie")
