@@ -1330,7 +1330,7 @@ private void log(String message) {
   System.out.println(message);
 }
 ```
-```ts {1,14-17}
+```ts {1,8-9,14-17}
 // 5. On expose log() en protected pour les tests
 public boolean add(String playerName) {
 
