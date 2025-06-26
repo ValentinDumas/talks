@@ -990,7 +990,7 @@ transition: slide-left
 class: opacity-80
 ---
 
-# Refactorer dans du code legacy
+# Identifier les hotspots
 
 Focus sur la **valeur** métier
 
@@ -1008,10 +1008,11 @@ class: opacity-80
 
 # Identifier les hotspots
 
+Diagramme de dépendance
+
 > Quand ? vérifier les impacts d'un changement
 
   <br>
-  <h3>Diagramme de dépendance</h3>
   
   <img src="/dependency-diagram-petclinic.png" alt="dependency diagram petclinic" />
 
@@ -1030,10 +1031,11 @@ class: opacity-80
 
 # Identifier les hotspots
 
+Matrice de dépendance
+
 > Quand ? vérifier les impacts d'un changement
 
   <br>
-  <h3>Matrice de dépendance</h3>
   
   <img src="/dependency-matrix-petclinic.png" alt="dependency matrix petclinic" />
 
