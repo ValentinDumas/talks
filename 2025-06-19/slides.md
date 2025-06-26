@@ -1292,45 +1292,7 @@ public boolean add(String playerName) {
   }
 
 ```
-```ts {1,9}
-// 3. Inline variable sur la variable message
-public boolean add(String playerName) {
-
-    players.add(playerName);
-    places[howManyPlayers()] = 0;
-    purses[howManyPlayers()] = 0;
-    inPenaltyBox[howManyPlayers()] = false;
-
-    log(playerName + " was added");
-    System.out.println("They are player number " + players.size());
-    
-    return true;
-  }
-
-private void log(String message) {
-  System.out.println(message);
-}
-```
-```ts {1,10}
-// 4. Refactoring manuel (ok car on peut 'rollback' avec un Inline Method sur la méthode modifiée)
-public boolean add(String playerName) {
-
-    players.add(playerName);
-    places[howManyPlayers()] = 0;
-    purses[howManyPlayers()] = 0;
-    inPenaltyBox[howManyPlayers()] = false;
-
-    log(playerName + " was added");
-    log("They are player number " + players.size());
-    
-    return true;
-  }
-
-private void log(String message) {
-  System.out.println(message);
-}
-```
-```ts {1,8-9,14-17}
+```ts {1,9-10,14-17}
 // 5. On expose log() en protected pour les tests
 public boolean add(String playerName) {
 
